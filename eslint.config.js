@@ -115,15 +115,7 @@ const reactConfig = {
     ],
     "react/jsx-no-target-blank": "off",
     "react/jsx-max-props-per-line": "off",
-    "react/jsx-sort-props": [
-      "error",
-      {
-        callbacksLast: true,
-        shorthandFirst: true,
-        reservedFirst: true,
-        multiline: "last",
-      },
-    ],
+    "react/jsx-sort-props": "off",
     "react/no-unknown-property": "off",
     "react/prop-types": "off",
     "react/react-in-jsx-scope": "off",
