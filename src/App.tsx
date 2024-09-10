@@ -1,13 +1,35 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { RouterProvider, type createRouter } from "@tanstack/react-router";
 import type { FunctionComponent } from "./common/types";
 import { Container, Box, Typography, Link } from '@mui/material';
-
+import {
+  createBrowserRouter,
+  RouterProvider
+} from "react-router-dom";
+import ErrorPage from "./pages/Error";
+import { AppWrapper } from "./routes/root";
+import { Home } from "./pages/Home";
 const queryClient = new QueryClient();
 
-type AppProps = { router: ReturnType<typeof createRouter> };
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <AppWrapper />,
+    errorElement: <ErrorPage />,
 
-function Copyright(): JSX.Element {
+    children: [
+      {
+        path: "/",
+        element: <Home />,
+      },
+      {
+        path: "/about",
+        element: <div>about page</div>,
+      },
+    ],
+  }
+]);
+
+function Footer(): JSX.Element {
   return (
     <Typography
       align="center"
@@ -25,13 +47,13 @@ function Copyright(): JSX.Element {
   );
 }
 
-const App = ({ router }: AppProps): FunctionComponent => {
+const App = (): FunctionComponent => {
 	return (
 		<QueryClientProvider client={queryClient}>
-			<RouterProvider router={router} />
-      <Container maxWidth="sm">
+      <RouterProvider router={router} />
+			<Container maxWidth="sm">
         <Box sx={{ my: 4 }}>
-          <Copyright />
+          <Footer />
         </Box>
       </Container>
 		</QueryClientProvider>
