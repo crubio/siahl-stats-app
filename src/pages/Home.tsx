@@ -35,8 +35,6 @@ export const Home = (): FunctionComponent => {
     }
   }, [data])
 
-  console.log(playerData[0]);
-
 	return (
 		<div className="container">
       <Box>
