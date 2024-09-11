@@ -17,6 +17,8 @@ export default function PlayerSearch(props: Props): JSX.Element {
           id="player-name" 
           margin="normal"
           onChange={(event) => { handleSubmit(event.target.value); }}
+          type="search"
+          autoComplete="off"
         />
       </Box>
     </>

@@ -16,12 +16,13 @@ export const Home = (): FunctionComponent => {
   // Search query is made from the page level, not the component level
   const {data} = useQuery<Array<Player>>({
     enabled: queryEnabled,
-    queryKey: ['search', queryId ,searchQuery],
+    queryKey: ['player-search', queryId ,searchQuery],
     queryFn: async () => getPlayerSearch(searchQuery.playerName),
   });
 
   const handleSubmit = (playerName: string): void => {
     if (!playerName || playerName.length < 3) {
+      setPlayerData([]);
       return;
     }
     setSearchQuery({playerName});
