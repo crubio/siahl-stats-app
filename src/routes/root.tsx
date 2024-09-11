@@ -9,7 +9,7 @@ export const AppWrapper = (): JSX.Element => {
         <AppHeader />
       </Container>
       <Container maxWidth="sm">
-        <Box sx={{ bgcolor: '#ddd', height: '90vh' }} >
+        <Box sx={{ height: '90vh' }} >
           <Outlet />
         </Box>
       </Container>

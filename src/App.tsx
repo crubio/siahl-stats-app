@@ -1,6 +1,6 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import type { FunctionComponent } from "./common/types";
-import { Container, Box, Typography, Link } from '@mui/material';
+import { Container, Box } from '@mui/material';
 import {
   createBrowserRouter,
   RouterProvider
@@ -29,23 +29,7 @@ const router = createBrowserRouter([
   }
 ]);
 
-function Footer(): JSX.Element {
-  return (
-    <Typography
-      align="center"
-      variant="body2"
-      sx={{
-        color: 'text.secondary',
-      }}
-    >
-      {'Copyright © '}
-      <Link color="inherit" href="/">
-        Chris Rubio
-      </Link>{' '}
-      {new Date().getFullYear()}.
-    </Typography>
-  );
-}
+
 
 const App = (): FunctionComponent => {
 	return (
@@ -53,7 +37,7 @@ const App = (): FunctionComponent => {
       <RouterProvider router={router} />
 			<Container maxWidth="sm">
         <Box sx={{ my: 4 }}>
-          <Footer />
+          
         </Box>
       </Container>
 		</QueryClientProvider>
