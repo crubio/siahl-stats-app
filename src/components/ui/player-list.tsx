@@ -1,37 +1,38 @@
-import Box from '@mui/material/Box';
 import type { JSX } from 'react/jsx-runtime';
 import type { Player } from '../../common/types';
-import { List, ListItem, ListItemButton, ListItemText } from '@mui/material';
+import { List, ListItem, ListItemButton, ListItemText, Paper } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 
 interface VirtualPlayerListProps {
   items: Array<Player>;
 }
 
-function renderList(items: Array<Player>): JSX.Element {
-  return (
-    <Box>
+export default function VirtualizedList(props: VirtualPlayerListProps): JSX.Element {
+  const nagivate = useNavigate();
+
+  function renderList(items: Array<Player>): JSX.Element {
+
+    return (
       <List>
       {items.map((item, index) => (
-        <ListItem disablePadding key={index}>
-          <ListItemButton>
-            <ListItemText primary={item[1]} />
+        <ListItem divider disablePadding key={index}>
+          <ListItemButton onClick={() => { nagivate(`/player/${item[0]}`); }}>
+            <ListItemText primary={item[1]} secondary={item[0]} />
           </ListItemButton>
         </ListItem>
       ))}
       </List>
-    </Box>
-  );
-}
+    );
+  }
 
-export default function VirtualizedList(props: VirtualPlayerListProps): JSX.Element {
   return (
     <>
       {props.items.length > 0 && (
-      <Box
-        sx={{ width: '100%', height: 400, maxWidth: 360, bgcolor: 'background.paper' }}
+      <Paper elevation={1}
+        sx={{ width: '100%', height: 400, overflow: 'auto' }}
       >
         {renderList(props.items)}
-      </Box>
+      </Paper>
     )}
     </>
   );
