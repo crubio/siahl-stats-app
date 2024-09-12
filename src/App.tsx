@@ -8,6 +8,7 @@ import {
 import ErrorPage from "./pages/Error";
 import { AppWrapper } from "./routes/root";
 import { Home } from "./pages/Home";
+import Footer from "./components/layout/footer";
 const queryClient = new QueryClient();
 
 const router = createBrowserRouter([
@@ -37,7 +38,7 @@ const App = (): FunctionComponent => {
       <RouterProvider router={router} />
 			<Container maxWidth="sm">
         <Box sx={{ my: 4 }}>
-          
+          <Footer />
         </Box>
       </Container>
 		</QueryClientProvider>

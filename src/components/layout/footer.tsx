@@ -1,5 +1,4 @@
-import { Typography } from "@mui/material";
-import { Link } from "react-router-dom";
+import { Link, Typography } from "@mui/material";
 
 export default function Footer(): JSX.Element {
   return (
@@ -10,10 +9,11 @@ export default function Footer(): JSX.Element {
         color: 'text.secondary',
       }}
     >
-      {'Copyright © '}
-      <Link color="inherit" to="/">
-        author's name
-      </Link>{' '}
+      {'some data provided by '}
+      <Link href="https://stats.sharksice.timetoscore.com/display-stats.php?league=1 ">
+        SIAHL
+      </Link>
+      {', '}
       {new Date().getFullYear()}.
     </Typography>
   );

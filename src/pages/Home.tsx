@@ -37,7 +37,7 @@ export const Home = (): FunctionComponent => {
   }, [data])
 
 	return (
-		<div className="container">
+		<Box className="container">
       <Box>
         <PlayerSearch handleSubmit={handleSubmit}/>
       </Box>
@@ -46,6 +46,6 @@ export const Home = (): FunctionComponent => {
           <VirtualPlayerList items={playerData}/>
         </Box>
       )}
-		</div>
+		</Box>
 	);
 };
