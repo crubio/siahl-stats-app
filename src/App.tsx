@@ -9,6 +9,7 @@ import ErrorPage from "./pages/Error";
 import { AppWrapper } from "./routes/root";
 import { Home } from "./pages/Home";
 import Footer from "./components/layout/footer";
+import { Player } from "./pages/Player";
 const queryClient = new QueryClient();
 
 const router = createBrowserRouter([
@@ -19,12 +20,17 @@ const router = createBrowserRouter([
 
     children: [
       {
-        path: "/",
+        path: "",
         element: <Home />,
       },
       {
         path: "/about",
         element: <div>about page</div>,
+      },
+      {
+        path: "/player/:id",
+        element: <Player />,
+        errorElement: <ErrorPage />,
       },
     ],
   }
